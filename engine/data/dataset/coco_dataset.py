@@ -130,7 +130,9 @@ class ConvertCocoPolysToMask(object):
 
         category2label = kwargs.get('category2label', None)
         if category2label is not None:
-            labels = [category2label[obj["category_id"]] for obj in anno]
+            # labels = [category2label[obj["category_id"]] for obj in anno]
+            labels = [category2label[obj["category_id"]] for obj in anno if obj["category_id"] in category2label]
+
         else:
             labels = [obj["category_id"] for obj in anno]
 
