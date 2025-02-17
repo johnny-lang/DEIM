@@ -129,6 +129,7 @@ class ConvertCocoPolysToMask(object):
         boxes[:, 1::2].clamp_(min=0, max=h)
 
         category2label = kwargs.get('category2label', None)
+        print(category2label)
         if category2label is not None:
             labels = [category2label[obj["category_id"]] for obj in anno]
             # labels = [category2label[obj["category_id"]] for obj in anno if obj["category_id"] in category2label]
