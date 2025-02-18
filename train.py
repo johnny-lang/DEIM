@@ -79,6 +79,7 @@ if __name__ == '__main__':
     parser.add_argument('--print-rank', type=int, default=0, help='print rank id')
 
     parser.add_argument('--local-rank', type=int, help='local rank id')
+    parser.add_argument('--fine-tune', type=int, help='fine tune epoch')
     args = parser.parse_args()
 
     main(args)
