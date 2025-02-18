@@ -4,8 +4,8 @@ evaluator:
   type: CocoEvaluator
   iou_types: ['bbox', ]
 
-num_classes: 80
-remap_mscoco_category: True
+num_classes: 21
+remap_mscoco_category: False
 
 train_dataloader: 
   type: DataLoader
@@ -18,7 +18,7 @@ train_dataloader:
       type: Compose
       ops: ~
   shuffle: True
-  num_workers: 4
+  num_workers: 0 
   drop_last: True 
   collate_fn:
     type: BatchImageCollateFunction
