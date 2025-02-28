@@ -82,16 +82,16 @@ class HungarianMatcher(nn.Module):
         # Also concat the target labels and boxes
         tgt_ids = torch.cat([v["labels"] for v in targets])
         tgt_bbox = torch.cat([v["boxes"] for v in targets])
-        print("tgt_ids values:", tgt_ids)
-        print("Max index in tgt_ids:", torch.max(tgt_ids).item())
-        print("Min index in tgt_ids:", torch.min(tgt_ids).item())
+        # print("tgt_ids values:", tgt_ids)
+        # print("Max index in tgt_ids:", torch.max(tgt_ids).item())
+        # print("Min index in tgt_ids:", torch.min(tgt_ids).item())
 
         # Compute the classification cost. Contrary to the loss, we don't use the NLL,
         # but approximate it in 1 - proba[target class].
         # The 1 is a constant that doesn't change the matching, it can be ommitted.
         if self.use_focal_loss:
             out_prob = out_prob[:, tgt_ids]
-            print("out_prob shape:", out_prob.shape)
+            # print("out_prob shape:", out_prob.shape)
             neg_cost_class = (1 - self.alpha) * (out_prob ** self.gamma) * (-(1 - out_prob + 1e-8).log())
             pos_cost_class = self.alpha * ((1 - out_prob) ** self.gamma) * (-(out_prob + 1e-8).log())
             cost_class = pos_cost_class - neg_cost_class
