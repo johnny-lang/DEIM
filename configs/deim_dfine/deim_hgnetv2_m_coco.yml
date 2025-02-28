@@ -25,7 +25,7 @@ epoches: 80  # 120 + 4n
 
 ## Our LR-Scheduler
 flat_epoch: 49    # 4 + epoch // 2, e.g., 40 = 4 + 72 / 2
-no_aug_epoch: 12
+no_aug_epoch: 6 
 
 ## Our DataAug
 train_dataloader: 
