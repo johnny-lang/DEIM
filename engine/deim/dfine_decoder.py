@@ -43,8 +43,8 @@ class MLP(nn.Module):
 class MSDeformableAttention(nn.Module):
     def __init__(
         self,
-        embed_dim=256,
-        num_heads=8,
+        embed_dim=512,
+        num_heads=16,
         num_levels=4,
         num_points=4,
         method='default',
