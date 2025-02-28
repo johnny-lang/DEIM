@@ -21,7 +21,7 @@ train_dataloader:
     type: BatchImageCollateFunction
     base_size: 640
     base_size_repeat: 3
-    stop_epoch: 50  # epoch in [72, ~) stop `multiscales`
+    stop_epoch: 12   # epoch in [72, ~) stop `multiscales`
 
   shuffle: True
   total_batch_size: 16 # total batch size equals to 32 (4 * 8)
