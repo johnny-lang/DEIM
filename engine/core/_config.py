@@ -75,7 +75,7 @@ class BaseConfig(object):
 
         self.seed :int = None
         self.print_freq :int = None
-        self.checkpoint_freq :int = 5 
+        self.checkpoint_freq :int = 1 
         self.output_dir :str = None
         self.summary_dir :str = None
         self.device : str = ''
