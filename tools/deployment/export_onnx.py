@@ -65,7 +65,7 @@ def main(args, ):
     torch.onnx.export(
         model,
         (data, size),
-        output_file,
+        '/kaggle/working/model.onnx',
         input_names=['images', 'orig_target_sizes'],
         output_names=['labels', 'boxes', 'scores'],
         dynamic_axes=dynamic_axes,
