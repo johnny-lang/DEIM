@@ -60,12 +60,13 @@ def main(args, ):
         'orig_target_sizes': {0: 'N'}
     }
 
-    output_file = args.resume.replace('.pth', '.onnx') if args.resume else 'model.onnx'
+    #output_file = args.resume.replace('.pth', '.onnx') if args.resume else 'model.onnx'
+    output_file = '/kaggle/working/model.onnx'
 
     torch.onnx.export(
         model,
         (data, size),
-        '/kaggle/working/model.onnx',
+        output_file,
         input_names=['images', 'orig_target_sizes'],
         output_names=['labels', 'boxes', 'scores'],
         dynamic_axes=dynamic_axes,
@@ -76,7 +77,7 @@ def main(args, ):
 
     if args.check:
         import onnx
-        onnx_model = onnx.load('/kaggle/working/model.onnx')
+        onnx_model = onnx.load(output_file)
         onnx.checker.check_model(onnx_model)
         print('Check export onnx model done...')
 
