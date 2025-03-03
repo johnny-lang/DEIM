@@ -76,7 +76,7 @@ def main(args, ):
 
     if args.check:
         import onnx
-        onnx_model = onnx.load(output_file)
+        onnx_model = onnx.load('/kaggle/working/model.onnx')
         onnx.checker.check_model(onnx_model)
         print('Check export onnx model done...')
 
